@@ -133,7 +133,7 @@ const renameGroup = asyncHandler(async (req, res) => {
     res.status(404);
     throw new Error("Chat Not Found");
   } else {
-    res.json(updatedChat);
+    res.status(200).json(updatedChat);
   }
 });
 
@@ -161,7 +161,7 @@ const removeFromGroup = asyncHandler(async (req, res) => {
     res.status(404);
     throw new Error("Chat Not Found");
   } else {
-    res.json(removed);
+    res.status(200).json(removed);
   }
 });
 
@@ -189,7 +189,7 @@ const addToGroup = asyncHandler(async (req, res) => {
     res.status(404);
     throw new Error("Chat Not Found");
   } else {
-    res.json(added);
+    res.status(200).json(added);
   }
 });
 
