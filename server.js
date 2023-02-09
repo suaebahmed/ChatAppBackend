@@ -16,20 +16,16 @@ connectDB();
 const app = express();
 
 app.use(express.json()); // to accept json data
-app.use(cors());
-
-app.use('/api/user', userRoutes);
-app.use('/api/chat', chatRoutes);
-app.use('/api/message', messageRoutes);
-
-// --------------------------deployment------------------------------
+app.use(cors()); 
 
 app.get("/", (req, res) => {
   res.setHeader('Access-Control-Allow-Credentials','true');
   res.send("API Running!");
 });
 
-// --------------------------deployment------------------------------
+app.use('/api/user', userRoutes);
+app.use('/api/chat', chatRoutes);
+app.use('/api/message', messageRoutes);
 
 // Error Handling middlewares
 app.use(notFound);
